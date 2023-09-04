@@ -10,12 +10,15 @@ input_string = ARGV[0]
 # Define a regular expression to match "School"
 regex = /School/
 
-# Use the regular expression to find matches in the input string
-matches = input_string.scan(regex)
+# Use the regular expression to find the first match in the input string
+match = input_string.match(regex)
 
-# Check if there are any matches
-if matches.empty?
-  puts "No match found."
+# Check if there is a match
+if match
+  matched_text = match[0]
+  match_length = matched_text.length
+  puts "#{matched_text}"
+  puts "(#{match_length} chars long)"
 else
-  puts "Match found: #{matches.join(', ')}"
+  puts "No match found."
 end
